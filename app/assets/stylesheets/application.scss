@@ -1,0 +1,36 @@
+@import "bootstrap";
+
+
+$basic-light: #D4E2EE;
+$basic-dark: #3F576B;
+$basic-mid: rgb(107, 148, 184);
+$text-lo: #5F666B;
+$text-hi: #8BBEEB;
+
+
+
+.basic-light {
+  background-color: $basic-light;
+}
+
+.basic-dark {
+  background-color: $basic-dark;
+}
+
+.basic-mid {
+  background-color:$basic-mid;
+}
+
+.text-lo {
+  color: $text-lo;
+}
+
+.text-hi {
+  color: $basic-light;
+}
+
+
+h1,h2,h3,h4 {
+  color: $text-lo;
+}
+
