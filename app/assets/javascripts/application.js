@@ -1,2 +1,3 @@
-import "bootstrap";
-import "../stylesheets/application";
+//= require jquery3
+//= require popper
+//= require bootstrap-sprockets
