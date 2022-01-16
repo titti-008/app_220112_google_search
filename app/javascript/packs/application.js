@@ -9,6 +9,9 @@ import * as ActiveStorage from "@rails/activestorage";
 import "channels";
 import "bootstrap";
 import "../stylesheets/application";
+//= require jquery_ujs
+// require("jquery")
+// require("moment")
 
 Rails.start();
 Turbolinks.start();
