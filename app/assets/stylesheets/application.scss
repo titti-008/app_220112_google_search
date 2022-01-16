@@ -1,5 +1,6 @@
 @import "bootstrap";
 
+// 自作テンプレを使用
 
 $basic-light: #D4E2EE;
 $basic-dark: #3F576B;
@@ -29,6 +30,11 @@ $text-hi: #8BBEEB;
   color: $basic-light;
 }
 
+.background-box {
+  background-color: $basic-light;
+  width: 100%;
+  min-height: 100vh;
+}
 
 h1,h2,h3,h4 {
   color: $text-lo;

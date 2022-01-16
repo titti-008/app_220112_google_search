@@ -1,0 +1,45 @@
+<%= render "search"  %>
+
+<div class="col">
+
+  <div>
+    <h4>
+      「 <%= @search_word %> 」の検索結果
+    </h4>
+  </div>
+  <div class="row">
+    <div class="col-2">
+      <%= button_to "前の10件", search_path, {method: :get, params:{search_word: @search_word , start_index: @previous_index }, :disabled=>!@previous_index } %>
+    </div>
+    <div class="col-2">
+      <%= button_to "次の10件", search_path, {method: :get, params:{search_word: @search_word , start_index: @next_index }, :disabled=>!@next_index } %>
+    </div>
+  </div>
+
+  <% if @items %>
+    <% @items.each do |item|%>
+      <div class="container my-2 p-2 border border-primary">
+        <div>
+          <div class="text-secondary text-truncate">
+            <%= item["link"]%>
+          </div>
+            <h3>
+              <%= link_to item["title"], item["link"] %>
+            </h3>
+          </div>
+        <div>
+          <%= item["snippet"]%>
+        </div>
+        <div height="100px">
+          <% if item.dig("pagemap", "cse_image", 0, "src") %>
+            <img src=<%= item["pagemap"]["cse_image"][0]["src"]%>  alt="" height="100px">
+          <% end %>
+        </div>
+      </div>
+        
+    <% end %>
+
+  <% else %>
+    <p>検索結果がありません。</p>
+  <% end %>
+</div>
