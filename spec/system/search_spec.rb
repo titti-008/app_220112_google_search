@@ -1,10 +1,22 @@
 # require "rails_helper"
 
-describe "word search function test:"  do
+describe "Word search function test"  do
 
-  it "test" do
-    expect(1+1).to eq 2
+  context "When search valid word" do
+    let(:search_word){ "チェンソーマン" }
+
+    before do
+      
+    end
+
+    it "Display seach results" do
+      expect(search_word).to eq "チェンソーマン"
+    end
+    
+    
   end
+  
+
   
   # context "if user visit home:" do
   #   before do
