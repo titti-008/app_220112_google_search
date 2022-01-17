@@ -8,7 +8,7 @@ class SearchController < ApplicationController
     @search_word = params[:search_word]
     @start_index = params[:start_index]
 
-    if @search_word == ""
+    if @search_word.blank?
       error_flash("検索する文字を入力してください")
       return
     end
@@ -22,19 +22,20 @@ class SearchController < ApplicationController
     # google custom search engineを使った文字列検索するメソッド
     def search_word(search_word, start_index)
 
-      base_url = "https://www.googleapis.com/customsearch/v1"
-      api_key = ENV["API_KEY"]
-      id = ENV["SEARCH_ENGINE_ID"]
-      escape_word = URI.encode_www_form_component(search_word)
+      uri = URI(ENV["API_URL"])
+      uri.query = {
+        key: ENV["API_KEY"],
+        cx: ENV["SEARCH_ENGINE_ID"],
+        q: search_word,
+        start: start_index
+      }.to_param
 
-      uri = URI.parse(
-        "#{base_url}?key=#{api_key}&cx=#{id}&q=#{escape_word}&start=#{start_index}"
-      )
       response = fetch_search_results(uri)
 
       if response
-        # response["queries"]["previousPage"][0]["startIndex"]とすると"previousPage"がnilの場合エラーになる
         items = response["items"]
+        
+        # response["queries"]["previousPage"][0]["startIndex"]とすると"previousPage"がnilの場合エラーになる
         previous_index = response.dig("queries", "previousPage", 0,  "startIndex")
         next_index = response.dig("queries", "nextPage", 0, "startIndex")
       end
