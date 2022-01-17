@@ -1,13 +1,20 @@
 # require "rails_helper"
 
-describe "Word search function test"  do
+describe "Word search function test", type: :request do
 
   context "When search valid word" do
     let(:search_word){ "チェンソーマン" }
+    
+    get "/"
+    it "when visit home" do
 
-    before do
-      
+      expect(page).to have_content("home")
     end
+    
+    
+    # before do
+      
+    # end
 
     it "Display seach results" do
       expect(search_word).to eq "チェンソーマン"
