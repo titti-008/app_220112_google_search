@@ -1,7 +1,7 @@
 # README
 
 Google custom search JSON APIを用いたgoogle検索ミラーサイトです。
-  * (メインの処理はこちらに記述)[app/controllers/search_controller.rb]
+  * [メインの処理はこちらに記述](app/controllers/search_controller.rb)
 
 ## 考慮した点
   * APIキーとIDは環境変数として設定し、.gitignoreで非公開とした。
