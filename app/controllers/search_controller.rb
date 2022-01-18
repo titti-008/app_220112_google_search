@@ -14,6 +14,7 @@ class SearchController < ApplicationController
     end
     
     @items, @previous_index, @next_index = search_word(@search_word, @start_index)
+    @page = (@start_index.to_f / 10).ceil
   end
 
 

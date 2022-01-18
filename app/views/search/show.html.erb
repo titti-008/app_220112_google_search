@@ -12,6 +12,9 @@
       <%= button_to "前の10件", search_path, {method: :get, params:{search_word: @search_word , start_index: @previous_index }, :disabled=>!@previous_index } %>
     </div>
     <div class="col-2">
+      <%= @page %> ページ目
+    </div>
+    <div class="col-2">
       <%= button_to "次の10件", search_path, {method: :get, params:{search_word: @search_word , start_index: @next_index }, :disabled=>!@next_index } %>
     </div>
   </div>
@@ -31,8 +34,8 @@
           <%= item["snippet"]%>
         </div>
         <div height="100px">
-          <% if item.dig("pagemap", "cse_image", 0, "src") %>
-            <img src=<%= item["pagemap"]["cse_image"][0]["src"]%>  alt="" height="100px">
+          <% if image = item.dig("pagemap", "cse_image", 0, "src") %>
+            <img src=<%= image %>  alt="" height="100px">
           <% end %>
         </div>
       </div>
