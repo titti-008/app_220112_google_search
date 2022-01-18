@@ -20,7 +20,7 @@ Google custom search JSON APIを用いたgoogle検索ミラーサイトです。
 2. ルートディレクトリに「.env.development」を作成し、下記を記述する
 ```.env.development
 API_KEY=<取得したAPIキー>
-SEARCH_ENGINE_ID=<取得したID>
+SEARCH_ENGINE_ID=<取得した検索エンジンID>
 ```
   ※本番環境の環境変数は別途環境に応じて設定が必要
 
